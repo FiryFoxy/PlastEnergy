@@ -1,81 +1,390 @@
 <!DOCTYPE html>
 <html lang="it">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoPlast Energy</title>
+    <title>PlastEnergy - Innovazione Sostenibile</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="PlastEnergy Logo" class="logo">
+    <header class="header-fixed">
+        <div class="header-content">
+            <img src="logo.png" alt="PlastEnergy Logo" class="logo">
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#chi-siamo"><i class="fas fa-users"></i> Chi Siamo</a></li>
+                    <li><a href="#come-funziona"><i class="fas fa-cogs"></i> Come Funziona</a></li>
+                    <li><a href="#componenti"><i class="fas fa-puzzle-piece"></i> Componenti</a></li>
+                    <li><a href="#mission"><i class="fas fa-bullseye"></i> Mission</a></li>
+                    <li><a href="#contatti"><i class="fas fa-envelope"></i> Contatti</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
     
-    <nav>
+    <nav class="mobile-nav" id="mobileNav">
         <ul>
-            <li><a href="#chi-siamo">Chi Siamo</a></li>
-            <li><a href="#come-funziona">Come Funziona</a></li>
-            <li><a href="#componenti">Componenti</a></li>
-            <li><a href="#mission">Mission</a></li>
-            <li><a href="#contatti">Contattaci</a></li>
+            <li><a href="#hero" onclick="closeMobileMenu()"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#chi-siamo" onclick="closeMobileMenu()"><i class="fas fa-users"></i> Chi Siamo</a></li>
+            <li><a href="#come-funziona" onclick="closeMobileMenu()"><i class="fas fa-cogs"></i> Come Funziona</a></li>
+            <li><a href="#componenti" onclick="closeMobileMenu()"><i class="fas fa-puzzle-piece"></i> Componenti</a></li>
+            <li><a href="#mission" onclick="closeMobileMenu()"><i class="fas fa-bullseye"></i> Mission</a></li>
+            <li><a href="#contatti" onclick="closeMobileMenu()"><i class="fas fa-envelope"></i> Contatti</a></li>
         </ul>
     </nav>
-    
-    <section id="chi-siamo">
-        <h2>Chi Siamo</h2>
-        <p>Siamo un'azienda innovativa che sviluppa macchinari per il riciclo della plastica e la produzione di gas attraverso colture batteriche in simbiosi al fine di produrre energia elettrica.</p>
-    </section>
-    
-    <section id="come-funziona">
-        <h2>Come Funziona</h2>
-        <p>Il nostro sistema utilizza colture batteriche per trasformare la plastica di scarto in gas, riducendo l'impatto ambientale e generando energia sostenibile.</p>
-    </section>
 
-    <section id="componenti">
-        <h2>Componenti</h2>
-        <div class="componenti-container">
-            <div class="componente">
-                <img src="shredder.png" alt="Shredder">
-                <h3>Shredder</h3>
-                <p>Il trituratore sminuzza la plastica in piccoli pezzi per facilitarne il trattamento successivo.</p>
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">PlastEnergy</h1>
+            <p class="hero-subtitle">Trasformiamo la plastica in energia sostenibile</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <i class="fas fa-recycle"></i>
+                    <span class="stat-number" data-target="95">0</span>%
+                    <span class="stat-label">Efficienza Riciclo</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-leaf"></i>
+                    <span class="stat-number" data-target="80">0</span>%
+                    <span class="stat-label">Riduzione CO₂</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-bolt"></i>
+                    <span class="stat-number" data-target="100">0</span>kW
+                    <span class="stat-label">Energia Prodotta</span>
+                </div>
             </div>
-            <div class="componente">
-                <img src="tanica.png" alt="Tanica">
-                <h3>Tanica</h3>
-                <p>Contenitore per la gestione e il trattamento della plastica sminuzzata.</p>
+            <a href="#chi-siamo" class="cta-button">
+                Scopri di più <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+        <div class="hero-animation">
+            <div class="floating-icon"><i class="fas fa-recycle"></i></div>
+            <div class="floating-icon"><i class="fas fa-leaf"></i></div>
+            <div class="floating-icon"><i class="fas fa-bolt"></i></div>
+        </div>
+    </section>
+    
+    <section id="chi-siamo" class="section-animated">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-users"></i> Chi Siamo</h2>
+            <div class="content-grid">
+                <div class="content-text">
+                    <p class="lead">Siamo un'azienda innovativa che sviluppa macchinari per il riciclo della plastica e la produzione di gas attraverso colture batteriche in simbiosi al fine di produrre energia elettrica.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-lightbulb"></i>
+                            <h4>Innovazione</h4>
+                            <p>Tecnologie all'avanguardia per il futuro sostenibile</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-microscope"></i>
+                            <h4>Ricerca</h4>
+                            <p>Sviluppo continuo di soluzioni biotecnologiche</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-globe-americas"></i>
+                            <h4>Sostenibilità</h4>
+                            <p>Impegno per un pianeta più pulito</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="componente">
-                <img src="sensori-controller.png" alt="Sensori e Controllore">
-                <h3>Sensori e Controllore</h3>
-                <p>Raspberry Pi e sensori per monitorare e gestire l'intero processo.</p>
-            </div>
-            <div class="componente">
-                <img src="peltier.png" alt="Celle di Peltier">
-                <h3>Celle di Peltier</h3>
-                <p>Utilizzate per il controllo termico del sistema.</p>
+        </div>
+    </section>
+    
+    <section id="come-funziona" class="section-animated bg-light">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Come Funziona</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-trash-alt"></i>
+                    <h4>Raccolta Plastica</h4>
+                    <p>Raccogliamo plastica di scarto da diverse fonti</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-cut"></i>
+                    <h4>Triturazione</h4>
+                    <p>La plastica viene sminuzzata in piccoli frammenti</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-bacteria"></i>
+                    <h4>Processo Batterico</h4>
+                    <p>Colture batteriche trasformano la plastica in gas</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <i class="fas fa-bolt"></i>
+                    <h4>Energia Elettrica</h4>
+                    <p>Il gas viene convertito in energia sostenibile</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <section id="componenti" class="section-animated">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-puzzle-piece"></i> Componenti del Sistema</h2>
+            <div class="componenti-container">
+                <div class="componente" data-aos="fade-up" data-aos-delay="100">
+                    <div class="componente-icon">
+                        <img src="shredder.png" alt="Shredder">
+                    </div>
+                    <h3><i class="fas fa-cut"></i> Shredder</h3>
+                    <p>Il trituratore sminuzza la plastica in piccoli pezzi per facilitarne il trattamento successivo.</p>
+                    <div class="componente-specs">
+                        <span class="spec"><i class="fas fa-tachometer-alt"></i> 500 kg/h</span>
+                        <span class="spec"><i class="fas fa-plug"></i> 15 kW</span>
+                    </div>
+                </div>
+                <div class="componente" data-aos="fade-up" data-aos-delay="200">
+                    <div class="componente-icon">
+                        <img src="tanica.png" alt="Tanica">
+                    </div>
+                    <h3><i class="fas fa-flask"></i> Bioreattore</h3>
+                    <p>Contenitore specializzato per la gestione e il trattamento biologico della plastica sminuzzata.</p>
+                    <div class="componente-specs">
+                        <span class="spec"><i class="fas fa-thermometer-half"></i> 35-40°C</span>
+                        <span class="spec"><i class="fas fa-clock"></i> 24-48h</span>
+                    </div>
+                </div>
+                <div class="componente" data-aos="fade-up" data-aos-delay="300">
+                    <div class="componente-icon">
+                        <img src="sensori-controller.png" alt="Sensori e Controllore">
+                    </div>
+                    <h3><i class="fas fa-microchip"></i> Sistema di Controllo</h3>
+                    <p>Raspberry Pi e sensori avanzati per monitorare e gestire l'intero processo in tempo reale.</p>
+                    <div class="componente-specs">
+                        <span class="spec"><i class="fas fa-wifi"></i> IoT Ready</span>
+                        <span class="spec"><i class="fas fa-chart-line"></i> Real-time</span>
+                    </div>
+                </div>
+                <div class="componente" data-aos="fade-up" data-aos-delay="400">
+                    <div class="componente-icon">
+                        <img src="peltier.png" alt="Celle di Peltier">
+                    </div>
+                    <h3><i class="fas fa-snowflake"></i> Controllo Termico</h3>
+                    <p>Celle di Peltier per il controllo preciso della temperatura durante il processo.</p>
+                    <div class="componente-specs">
+                        <span class="spec"><i class="fas fa-balance-scale"></i> ±1°C</span>
+                        <span class="spec"><i class="fas fa-battery-three-quarters"></i> Efficiente</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <iframe src="render.html" width="100%" height="600px" style="border:none;"></iframe>
+    <section id="modello-3d" class="section-3d">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-cube"></i> Modello 3D Interattivo</h2>
+            <p class="section-subtitle">Esplora il nostro sistema in 3D</p>
+            <div class="model-container">
+                <iframe src="360-viewer.html" width="100%" height="600px" style="border:none; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);"></iframe>
+            </div>
+        </div>
+    </section>
 
-    <section id="mission">
-        <h2>La Nostra Mission</h2>
-        <p>Riciclare la plastica rimuovendo uno step nella fase terminale della sua vita, riconvertendola in energia.</p>
+    <section id="mission" class="section-animated bg-gradient">
+        <div class="container">
+            <h2 class="section-title text-white"><i class="fas fa-bullseye"></i> La Nostra Mission</h2>
+            <div class="mission-content">
+                <div class="mission-text">
+                    <p class="lead mission-text-white">Riciclare la plastica rimuovendo uno step nella fase terminale della sua vita, riconvertendola in energia sostenibile per un futuro più verde.</p>
+                    <div class="mission-goals">
+                        <div class="goal">
+                            <i class="fas fa-recycle"></i>
+                            <h4>Economia Circolare</h4>
+                            <p>Trasformare i rifiuti in risorse preziose</p>
+                        </div>
+                        <div class="goal">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Impatto Zero</h4>
+                            <p>Ridurre l'inquinamento plastico globale</p>
+                        </div>
+                        <div class="goal">
+                            <i class="fas fa-bolt"></i>
+                            <h4>Energia Pulita</h4>
+                            <p>Produrre energia rinnovabile e sostenibile</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     
-    <section id="contatti">
-        <h2>Contattaci</h2>
-        <p>Email: info@plastenergy.com</p>
-        <p>Telefono: +39 123 456 7890</p>
+    <section id="contatti" class="section-animated">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Contattaci</h2>
+            <div class="contact-content-single">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:info@plastenergy.com">info@plastenergy.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefono</h4>
+                            <a href="tel:+39123456789">+39 123 456 7890</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Sede</h4>
+                            <p>Via dell'Innovazione, 123<br>Milano, Italia</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
-
-    
     <footer>
-        <p>&copy; 2025 PlastEnergy S.r.l.</p>
-    </footer>    
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo-container">
+                        <img src="logo.png" alt="PlastEnergy Logo" class="footer-logo">
+                    </div>
+                    <p>Innovazione sostenibile per un futuro migliore</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Link Utili</h4>
+                    <ul>
+                        <li><a href="#chi-siamo">Chi Siamo</a></li>
+                        <li><a href="#come-funziona">Come Funziona</a></li>
+                        <li><a href="#componenti">Componenti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Seguici</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PlastEnergy S.r.l. - Tutti i diritti riservati</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const body = document.body;
+            mobileNav.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const body = document.body;
+            mobileNav.classList.remove('active');
+            body.classList.remove('menu-open');
+        }
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Animated counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    if (entry.target.id === 'hero') {
+                        setTimeout(animateCounters, 500);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-animated, #hero').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header-fixed');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+
+    </script>
 </body>
 </html>

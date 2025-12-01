@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360° Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            font-family: Arial, sans-serif;
+        }
+        .viewer-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: grab;
+        }
+        .viewer-image:active {
+            cursor: grabbing;
+        }
+        @media (max-width: 768px) {
+            .viewer-image {
+                width: 150%;
+                margin-left: -25%;
+                object-fit: cover;
+            }
+        }
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            pointer-events: none;
+        }
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <img id="viewer" class="viewer-image" src="PlastBin_360_Render/frame.0.png" alt="360° View">
+    <div class="controls">
+        Trascina per ruotare
+    </div>
+
+    <script>
+        const viewer = document.getElementById('viewer');
+        const totalFrames = 36;
+        let currentFrame = 0;
+        let isDragging = false;
+        let startX = 0;
+        let startFrame = 0;
+
+        // Preload images
+        const images = [];
+        for (let i = 0; i < totalFrames; i++) {
+            images[i] = new Image();
+            images[i].src = `PlastBin_360_Render/frame.${i}.png`;
+        }
+
+        function updateFrame(frame) {
+            currentFrame = ((frame % totalFrames) + totalFrames) % totalFrames;
+            viewer.src = images[currentFrame].src;
+        }
+
+        // Mouse events
+        viewer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startFrame = currentFrame;
+            e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const deltaX = e.clientX - startX;
+            const sensitivity = 5;
+            const frameChange = Math.floor(deltaX / sensitivity);
+            updateFrame(startFrame + frameChange);
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Touch events
+        viewer.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].clientX;
+            startFrame = currentFrame;
+            e.preventDefault();
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const deltaX = e.touches[0].clientX - startX;
+            const sensitivity = 3;
+            const frameChange = Math.floor(deltaX / sensitivity);
+            updateFrame(startFrame + frameChange);
+            e.preventDefault();
+        });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Auto-rotation
+        let autoRotate = setInterval(() => {
+            if (!isDragging) {
+                updateFrame(currentFrame + 1);
+            }
+        }, 150);
+
+        // Stop auto-rotation on interaction
+        viewer.addEventListener('mousedown', () => clearInterval(autoRotate));
+        viewer.addEventListener('touchstart', () => clearInterval(autoRotate));
+    </script>
+</body>
+</html>
