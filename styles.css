@@ -221,6 +221,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease 1.1s forwards;
+    margin-top: 20px;
 }
 
 .cta-button:hover {

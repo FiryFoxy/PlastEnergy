@@ -10,12 +10,15 @@
             padding: 0;
             background: transparent;
             font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
         }
         .viewer-image {
             width: 100%;
-            height: auto;
+            height: 100vh;
             display: block;
             cursor: grab;
+            object-fit: cover;
         }
         .viewer-image:active {
             cursor: grabbing;
@@ -27,18 +30,7 @@
                 object-fit: cover;
             }
         }
-        .controls {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 14px;
-            pointer-events: none;
-        }
+
         .loading {
             position: absolute;
             top: 50%;
@@ -50,9 +42,6 @@
 </head>
 <body>
     <img id="viewer" class="viewer-image" src="PlastBin_360_Render/frame.0.png" alt="360° View">
-    <div class="controls">
-        Trascina per ruotare
-    </div>
 
     <script>
         const viewer = document.getElementById('viewer');
